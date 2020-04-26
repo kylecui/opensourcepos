@@ -300,6 +300,13 @@ if (isset($success))
 		?>
 
 		<table class="sales_table_100" id="sale_totals">
+		<!--
+			add a row to show total counts of items.  
+		-->
+			<tr>
+					<th style="width: 55%;"><?php echo $this->lang->line('sales_quantity_of_items', $item_count); ?></th>
+					<th style="width: 45%; text-align: right;"><?php echo to_currency($total_units); ?></th>
+			</tr>
 			<tr>
 				<?php
 				if($mode != 'requisition')
