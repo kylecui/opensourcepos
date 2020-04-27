@@ -388,6 +388,31 @@ class Receiving_lib
 		
 		return $total;
 	}
+
+	/**
+	 * kylecui:
+	 * add get_totals function to Receivings.
+	 * different from the get_totals function in Sales, this function will return 'item_count', 'total_units' only.
+	 */
+
+	public function get_totals()
+	{
+		$totals = array();
+		$item_count = 0;
+		$total_units = 0.0;
+
+		foreach($this->get_cart() as $item)
+		{
+			$item_count++;
+			$total_units += $item['quantity'];
+		}
+		
+		$totals['item_count'] = $item_count;
+		$totals['total_units'] = $total_units;
+
+		return $totals;
+	}
+
 }
 
 ?>

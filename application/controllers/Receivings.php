@@ -201,6 +201,16 @@ class Receivings extends Secure_Controller
 		$data = array();
 		
 		$data['cart'] = $this->receiving_lib->get_cart();
+
+		/**
+		 * kylecui:
+		 * add get_totals so that receivings can understand total_units and item_count
+		 */
+
+		$totals = $this->receiving_lib->get_totals();
+		$data['item_count'] = $totals['item_count'];
+		$data['total_units'] = $totals['total_units'];
+
 		$data['total'] = $this->receiving_lib->get_total();
 		$data['transaction_time'] = to_datetime(time());
 		$data['mode'] = $this->receiving_lib->get_mode();
